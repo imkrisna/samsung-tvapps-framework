@@ -1,4 +1,12 @@
 var STRING = new Object();
 
 STRING.EMPTY	= "";
+STRING.SPACE	= " ";
 STRING.SLASH	= "/";
+STRING.PERCENT	= "%";
+STRING.PIXEL	= "px";
+
+STRING.JS_UNDEFINED		= "undefined";
+
+STRING.CSS_DISPLAY_NONE		= "none";
+STRING.CSS_DISPLAY_BLOCK	= "block";

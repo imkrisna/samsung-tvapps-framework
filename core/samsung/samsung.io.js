@@ -1,6 +1,5 @@
 var Samsung = Samsung || new Object();
-
-Samsung.IO = new Object();
+Samsung.IO 	= new Object();
 
 Samsung.IO.FILE_COMMON_DIR	= curWidget.id + STRING.SLASH;
 Samsung.IO.FILE_MODE_READ	= "r";
