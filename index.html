@@ -2,27 +2,50 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>imJSFramework</title>
+		<title>Framework</title>
 
-		<!-- TODO : Common API -->
-		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
-		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
-
-		<!-- TODO : Javascript code -->
-		<script language="javascript" type="text/javascript" src="app/javascript/Main.js"></script>
-
-		<!-- TODO : Style sheets code -->
-		<link rel="stylesheet" href="app/stylesheets/Main.css" type="text/css">
-
-		<!-- TODO: Plugins -->
-
+		<!-- Platform API & Plugins Here (Mandatory) -->
+		<script type="text/javascript" 		src="$MANAGER_WIDGET/Common/af/2.0.0/loader.js"></script>
+		<script type="text/javascript" 		src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+		<script type="text/javascript" 		src="$MANAGER_WIDGET/Common/API/Plugin.js"></script>
+		<script type="text/javascript" 		src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+		<script type='text/javascript' 		src='$MANAGER_WIDGET/Common/webapi/1.0/webapis.js'></script>		
+		<script type="text/javascript" 		src="$MANAGER_WIDGET/Common/webapi/1.0/multiscreenapi.js"></script>		
+		
+		<object id="pluginObjectTV" 		classid="clsid:SAMSUNG-INFOLINK-TV" 		class="sef-plugin"></object>
+		<object id="pluginObjectAudio" 		classid="clsid:SAMSUNG-INFOLINK-AUDIO" 		class="sef-plugin"></object>
+		<object id="pluginObjectPlayer" 	classid="clsid:SAMSUNG-INFOLINK-PLAYER"		class="sef-plugin"></object>
+		<object id="pluginObjectTVMW" 		classid="clsid:SAMSUNG-INFOLINK-TVMW"		class="sef-plugin"></object>
+		<object id="pluginObjectVideo" 		classid="clsid:SAMSUNG-INFOLINK-VIDEO"		class="sef-plugin"></object>
+		<object id="pluginObjectNNavi" 		classid="clsid:SAMSUNG-INFOLINK-NNAVI"		class="sef-plugin"></object>
+		<object id="pluginObjectAppCommon"	classid="clsid:SAMSUNG-INFOLINK-APPCOMMON"	class="sef-plugin"></object>
+		<object id="pluginObjectNetwork"	classid="clsid:SAMSUNG-INFOLINK-NETWORK"	class="sef-plugin"></object>
+		<object id="pluginObjectStorage"	classid="clsid:SAMSUNG-INFOLINK-STORAGE"	class="sef-plugin"></object>		
+		
+		<!-- Development Framework Library (Mandatory) -->
+		<script type="text/javascript" 		src="core/system/system.js"></script>
+		<script type="text/javascript" 		src="core/system/system.cache.js"></script>
+		<script type="text/javascript" 		src="core/samsung/samsung.js"></script>
+		
+		<!-- Development Framework Library (Utilities) -->
+		<script type="text/javascript" 		src="lib/util/encrypt/md5.js"></script>
+		<script type="text/javascript" 		src="lib/util/encrypt/sha1.js"></script>
+		
+		<!-- Google Analytics Tracker Library (SEIN Analytics Required) -->
+		<script type="text/javascript" 		src="lib/external/ga.js"></script>
+		 
+		<!-- Custom Library Here -->
+		
+		
+		<!-- Main script codes -->
+		<link 	type="text/css" 		href="main.css" rel="stylesheet" />
+		<script type="text/javascript" 	src="main.js"></script>
 	</head>
-
-	<body onload="Main.onLoad();" onunload="Main.onUnload();">
-
-		<!-- Dummy anchor as focus for key events -->
-		<a href="javascript:void(0);" id="anchor" onkeydown="Main.keyDown();"></a>
-
-		<!-- TODO: your code here -->
+	<body onload="Main.onLoad();" onunload="Main.onUnload();" onkeydown="Main.keyDown();">
+		<a href="javascript:void(0);" id="anchor"></a>
+		
+		<script type="text/javascript" src="$MANAGER_WIDGET/Common/IME/ime2.js"></script>
+		<script type="text/javascript" src='$MANAGER_WIDGET/Common/IME_XT9/ime.js'></script>
+		
 	</body>
 </html>

@@ -16,6 +16,10 @@ System.putInnerHtml = function(html, value){
 			domElement = document.getElementById(html);
 		}
 		
-		System.SamsungAPI.Widget.putInnerHtml(domElement, value);
+		Samsung.Widget.putInnerHtml(domElement, value);
 	}
+};
+
+System.getWidgetId = function(){
+	return curWidget.id;
 };
