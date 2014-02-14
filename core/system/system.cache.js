@@ -2,8 +2,24 @@ var System = System || new Object();
 
 System.Cache = new Object();
 
-System.Cache.HtmlDOM = new Object();
-System.Cache.Storage = new Object();
+System.Cache.Scene		= new Object();	
+System.Cache.HtmlDOM 	= new Object();
+System.Cache.Storage 	= new Object();
+
+System.Cache.registerScene = function(sceneName, sceneObject){
+	if (System.TYPE_UNDEFINED === System.Cache.Scene[sceneName]){
+		System.Cache.Scene[sceneName] = sceneObject;
+	}
+};
+
+System.Cache.getScene = function(sceneName){
+	if (System.TYPE_UNDEFINED === System.Cache.Scene[sceneName]){
+		return null;
+	}
+	else{
+		return System.Cache.Scene[sceneName];
+	}
+};
 
 System.Cache.getHtml = function(htmlId){
 	if (System.TYPE_UNDEFINED === System.Cache.HtmlDOM[htmlId]){
