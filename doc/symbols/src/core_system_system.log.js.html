@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Source - undefined</title>
+	<meta name="generator" content="JsDoc Toolkit" />
+	
+	<link media="all" rel="stylesheet" href="../../css/common.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/prettify.css" type="text/css" />
+	<style type="text/css">
+		.icon-jsdoc {
+			background: url("../../img/classicons.png") no-repeat;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="../../js/prettify.js" type="text/javascript"></script>
+	<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body><div class="container-fluid">
+<!-- ============================== header ================================= -->	
+	<!-- begin static/header.html -->
+	<header class="header navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#"><strong>JsDoc</strong> Reference</a>
+				<ul id="class-file-selector" class="nav">
+					<li><a href="../../index.html">Class Index</a></li>
+					<li><a href="../../files.html">File Index</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+	<div class="row-fluid">
+		<div id="index" class="span3">
+			<!-- begin publish.classesIndex -->
+			<div class="well" id="class-list">
+	<ul class="nav nav-list">
+		<li class="nav-header">Classes</li>
+		
+			<li><a href="../../symbols/STRING.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">STRING</span></span></a></li>
+		
+			<li><a href="../../symbols/Samsung.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">Samsung</span></span></a></li>
+		
+			<li><a href="../../symbols/Samsung.SEF.html"><span class="indent" style="padding-left:14px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">SEF</span></span></a></li>
+		
+			<li><a href="../../symbols/_global_.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">_global_</span></span></a></li>
+		
+	</ul>
+</div>
+
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content" class="span9">
+<!-- ============================== source code ============================ -->
+
+			<pre id="source-code" class="prettyprint linenums">
+				var System 	= System || new Object();
+System.Log 	= new Object();
+
+System.Log.MODE_DEBUGGING	= "SYSTEM_LOG_MODE_DEBUGGING";
+System.Log.MODE_DEVELOPMENT	= "SYSTEM_LOG_MODE_DEVELOPMENT";
+System.Log.MODE_PRODUCTION	= "SYSTEM_LOG_MODE_PRODUCTION";
+
+System.Log.LEVEL_VERBOSE	= 10;
+System.Log.LEVEL_DEBUG		= 20;
+System.Log.LEVEL_INFO		= 30;
+System.Log.LEVEL_WARNING	= 40;
+System.Log.LEVEL_ERROR		= 50;
+
+System.Log.COLOR_DEFAULT	= "#FFFFFF";
+System.Log.COLOR_DEBUG		= "#00FFFF";
+System.Log.COLOR_INFO		= "#3300FF";
+System.Log.COLOR_WARNING	= "#FFCC00";
+System.Log.COLOR_ERROR		= "#FF0000";
+
+System.Log.HTML_ID			= "framework-debug";
+System.Log.ALERT_PREFIX		= "### LOG ### ";
+System.Log.BUFFER_SIZE		= 50;
+
+System.Log.Buffer			= new Array();
+System.Log.BufferString		= STRING.EMPTY;
+System.Log.ActiveMode		= System.Log.MODE_DEVELOPMENT;
+System.Log.ActiveLevel		= System.Log.LEVEL_WARNING;
+
+
+System.Log.setMode = function(mode){
+	var debugHtml = System.Cache.getHtml(System.Log.HTML_ID);
+	
+	switch (mode){
+		case System.Log.MODE_DEBUGGING:
+			debugHtml.style.display = STRING.CSS_DISPLAY_BLOCK;
+			break;
+		default:
+			debugHtml.style.display = STRING.CSS_DISPLAY_NONE;
+			break;
+	}
+};
+
+System.Log.setLevel = function(level){
+	System.Log.ActiveLevel = level;
+};
+
+System.Log.verbose = function(message){
+	System.Log.log(message, System.Log.LEVEL_VERBOSE, System.Log.COLOR_DEFAULT);
+};
+
+System.Log.debug = function(message){
+	System.Log.log(message, System.Log.LEVEL_DEBUG, System.Log.COLOR_DEBUG);
+};
+
+System.Log.info = function(message){
+	System.Log.log(message, System.Log.LEVEL_INFO, System.Log.COLOR_INFO);
+};
+
+System.Log.warning = function(message){
+	System.Log.log(message, System.Log.LEVEL_WARNING, System.Log.COLOR_WARNING);
+};
+
+System.Log.error = function(message){
+	System.Log.log(message, System.Log.LEVEL_ERROR, System.Log.COLOR_ERROR);
+};
+
+System.Log.log = function(message, level, color){
+	if (!level)	level	= System.Log.LEVEL_VERBOSE;
+	if (!color) color 	= System.Log.COLOR_DEFAULT;
+	
+	if (System.Log.ActiveMode !== System.Log.MODE_PRODUCTION &amp;&amp; level &gt;= System.Log.ActiveLevel){		
+		alert(System.Log.ALERT_PREFIX + message);		
+		System.Log.Buffer.push("&lt;span style=\"color:" + color + "\"&gt;" + message + "&lt;/span&gt;");
+		
+		while (System.Log.Buffer.length &gt; System.Log.BUFFER_SIZE){
+			System.Log.Buffer.splice(0, 1);
+		}
+		
+		if (System.Log.ActiveMode === System.Log.MODE_DEBUGGING){
+			System.Log.BufferString	= System.Log.Buffer.join("&lt;br /&gt;");			
+			System.putInnerHtml(System.Log.HTML_ID, System.Log.BufferString);	
+		}				
+	}	
+};
+			</pre>
+		</div>
+	</div>
+	
+<!-- ============================== footer ================================= -->
+	<footer class="footer">
+		
+		<p>Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.4.0 on Mon Feb 17 2014 16:25:07 GMT+0700 (ICT)</p>
+	</footer>
+</div>
+<script type="text/javascript">
+	prettyPrint();
+	var i = 1;
+	$('#source-code li').each(function() {
+		$(this).attr({ id: 'line' + (i++) });
+	});
+</script>
+</body>
+</html>

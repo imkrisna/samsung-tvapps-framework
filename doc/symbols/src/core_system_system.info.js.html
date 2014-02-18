@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Source - undefined</title>
+	<meta name="generator" content="JsDoc Toolkit" />
+	
+	<link media="all" rel="stylesheet" href="../../css/common.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/prettify.css" type="text/css" />
+	<style type="text/css">
+		.icon-jsdoc {
+			background: url("../../img/classicons.png") no-repeat;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="../../js/prettify.js" type="text/javascript"></script>
+	<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body><div class="container-fluid">
+<!-- ============================== header ================================= -->	
+	<!-- begin static/header.html -->
+	<header class="header navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#"><strong>JsDoc</strong> Reference</a>
+				<ul id="class-file-selector" class="nav">
+					<li><a href="../../index.html">Class Index</a></li>
+					<li><a href="../../files.html">File Index</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+	<div class="row-fluid">
+		<div id="index" class="span3">
+			<!-- begin publish.classesIndex -->
+			<div class="well" id="class-list">
+	<ul class="nav nav-list">
+		<li class="nav-header">Classes</li>
+		
+			<li><a href="../../symbols/STRING.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">STRING</span></span></a></li>
+		
+			<li><a href="../../symbols/Samsung.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">Samsung</span></span></a></li>
+		
+			<li><a href="../../symbols/Samsung.SEF.html"><span class="indent" style="padding-left:14px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">SEF</span></span></a></li>
+		
+			<li><a href="../../symbols/_global_.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">_global_</span></span></a></li>
+		
+	</ul>
+</div>
+
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content" class="span9">
+<!-- ============================== source code ============================ -->
+
+			<pre id="source-code" class="prettyprint linenums">
+				var System 	= System || new Object();
+System.Info	= new Object();
+
+System.Info.NETWORK_TYPE_DISCONNECTED	= -1;
+System.Info.NETWORK_TYPE_WIRELESS		= 0;
+System.Info.NETWORK_TYPE_WIRED			= 1;
+
+System.Info.FIRMWARE_PREFIX				= "T-INFOLINK";
+
+System.Info.PARAM_KEY_SMARTHUB			= "mgrver";
+System.Info.PARAM_KEY_STORAGE_SIZE		= "totalMemory";
+System.Info.PARAM_KEY_COUNTRY			= "country";
+System.Info.PARAM_KEY_COUNTRY_SAMSUNG	= "samsung_country";
+System.Info.PARAM_KEY_SERVER_TYPE		= "server";
+
+System.Info.getWidgetId = function(){
+	return curWidget.id;
+};
+
+System.Info.is3DSupported = function(){
+	var check = sf.env.get3DSupported();
+	if (check === sf.env.SUPPORT3D_SUPPORTED){		
+		return true;
+	}
+	else return false;
+};
+
+System.Info.isNetworkActive = function(){
+	Samsung.SEF.loadNetwork();
+	
+	var activeConnection = Samsung.SEF.Network.GetActiveType();
+	if (activeConnection === -1){
+		return false;
+	}
+	else{
+		var physicalConnection = Samsung.SEF.CheckPhysicalConnection(activeConnection);
+		if (physicalConnection === 1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+};
+
+System.Info.getNetworkType = function(){
+	Samsung.SEF.loadNetwork();	
+	return Samsung.SEF.Network.GetActiveType();
+};
+
+System.Info.getLocalIPAddress = function(){
+	Samsung.SEF.loadNetwork();	
+	if (System.Info.isNetworkActive() === true){
+		return Samsung.SEF.Network.GetIP(System.Info.getNetworkType());
+	}
+	else{
+		return null;
+	}
+};
+
+System.Info.getMACAddress = function(networkType){
+	if (!networkType) networkType = System.Info.getNetworkType();
+	
+	Samsung.SEF.loadNetwork();	
+	return Samsung.SEF.Network.GetMAC(networkType);
+};
+
+System.Info.getDUID = function(){
+	Samsung.SEF.loadNNavi();	
+	return Samsung.SEF.NNavi.GetDUID(System.Info.getMACAddress(System.Info.NETWORK_TYPE_WIRED));
+};
+
+System.Info.getDeviceModel = function(){
+	Samsung.SEF.loadTV();
+	return Samsung.SEF.TV.GetProductCode(1);
+};
+
+System.Info.getFirmware = function(){
+	Samsung.SEF.loadNNavi();
+	return Samsung.SEF.NNavi.GetFirmware();
+};
+
+System.Info.getFirmwareVersion = function(){
+	var fw 		= System.Info.getFirmware();
+	var fwCode	= fw.replace(System.Info.FIRMWARE_PREFIX, "");
+	var fwElem	= fwCode.split("-");
+	return Number(fwElem[1]);
+};
+
+System.Info.getYear = function(){
+	var fw 		= System.Info.getFirmware();
+	var fwCode	= fw.replace(System.Info.FIRMWARE_PREFIX, "");
+	var fwElem	= fwCode.split("-");
+	return Number(fwElem[0]);
+};
+
+System.Info.getSamsungSfVersion = function(){
+	return sf.core.version();
+};
+
+System.Info.getApplicationVersion = function(){
+	return sf.env.getAppVersion();	
+};
+
+System.Info.getApplicationResolution = function(){
+	return sf.env.getResolution();
+};
+
+System.Info.getSmartHub = function(){
+	return System.Info.getLaunchParameter(System.Info.PARAM_KEY_SMARTHUB);
+};
+
+System.Info.getStorageSize = function(){
+	return Number(System.Info.getLaunchParameter(System.Info.PARAM_KEY_STORAGE_SIZE));
+};
+
+System.Info.getCountry = function(){
+	return System.Info.getLaunchParameter(System.Info.PARAM_KEY_COUNTRY);
+};
+
+System.Info.getSamsungCountry = function(){
+	return System.Info.getLaunchParameter(System.Info.PARAM_KEY_COUNTRY_SAMSUNG); 
+};
+
+System.Info.getServerType = function(){
+	return System.Info.getLaunchParameter(System.Info.PARAM_KEY_SERVER_TYPE);
+};
+
+System.Info.getLaunchParameter = function(key){
+	var value 		= null;
+	var parameter	= window.location.search;
+	var elements	= parameter.split("&amp;");
+	
+	for (var i = 0; i &lt; elements.length; i++){
+		var keyvalue = elements[i].split("=");
+		if (keyvalue[0] === key || keyvalue[0] === ("?" + key)){
+			value = keyvalue[1];
+			break;
+		}
+	}
+	
+	return value;
+};
+			</pre>
+		</div>
+	</div>
+	
+<!-- ============================== footer ================================= -->
+	<footer class="footer">
+		
+		<p>Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.4.0 on Mon Feb 17 2014 16:25:07 GMT+0700 (ICT)</p>
+	</footer>
+</div>
+<script type="text/javascript">
+	prettyPrint();
+	var i = 1;
+	$('#source-code li').each(function() {
+		$(this).attr({ id: 'line' + (i++) });
+	});
+</script>
+</body>
+</html>

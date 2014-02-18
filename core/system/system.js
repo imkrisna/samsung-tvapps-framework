@@ -23,3 +23,7 @@ System.putInnerHtml = function(html, value){
 System.getWidgetId = function(){
 	return curWidget.id;
 };
+
+System.ready = function(){
+	Samsung.Widget.sendReadyEvent();
+};
