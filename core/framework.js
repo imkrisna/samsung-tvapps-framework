@@ -8,6 +8,12 @@ Object.prototype.implements = function(someClass){
 
 var Framework = Framework || new Object();
 
+Framework.APPLICATION_PATH		= "application/";
+Framework.SCENES_PATH			= Framework.APPLICATION_PATH + "scenes/";
+Framework.SCENE_HTML_PATH		= Framework.SCENES_PATH + "html/";
+Framework.SCENE_CSS_PATH		= Framework.SCENES_PATH + "css/";
+Framework.SCENE_SCRIPT_PATH		= Framework.SCENES_PATH + "js/";
+
 Framework.LOADED_SCENE_LIST 	= [];
 Framework.LOADED_SCRIPT_LIST	= [];
 Framework.LOADED_CSS_LIST		= [];
@@ -19,7 +25,14 @@ Framework.loadListedScenes = function(){
 };
 
 Framework.loadScene = function(sceneName){
+	var sceneHtml	= Framework.SCENE_HTML_PATH + sceneName + ".html";
+	var sceneCSS	= Framework.SCENE_CSS_PATH + sceneName + ".css";
+	var sceneScript	= Framework.SCENE_SCRIPT_PATH + sceneName + ".js";
 	
+	
+	
+	Framework.loadCSS(sceneCSS);
+	Framework.loadScript(sceneScript);
 };
 
 Framework.loadListedScripts = function(){
@@ -29,7 +42,11 @@ Framework.loadListedScripts = function(){
 };
 
 Framework.loadScript = function(path){
+	var newScript 	= document.createElement("script");
+	newScript.type	= "text/javascript";
+	newScript.src	= path;
 	
+	if (document.head) document.head.appendChild(newScript);
 };
 
 Framework.loadListedCSS = function(){
@@ -39,7 +56,12 @@ Framework.loadListedCSS = function(){
 };
 
 Framework.loadCSS = function(path){
+	var newStyle	= document.createElement("link");
+	newStyle.rel	= "stylesheet";
+	newStyle.type	= "text/css";
+	newStyle.href	= path;
 	
+	if (document.head) document.head.appendChild(newStyle);
 };
 	
 Framework.loadListedScenes();

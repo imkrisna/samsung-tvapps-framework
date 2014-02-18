@@ -9,6 +9,17 @@ Samsung.IO.File 			= new FileSystem();
 Samsung.IO.FileDescriptor	= null;
 Samsung.IO.FileString		= STRING.EMPTY;
 
+Samsung.IO.readTextFile = function(path){
+	Samsung.IO.FileString		= STRING.EMPTY;
+	Samsung.IO.FileDescriptor 	= Samsung.IO.File.openFile(path, Samsung.IO.FILE_MODE_READ);
+	if (Samsung.IO.FileDescriptor){
+		Samsung.IO.FileString = Samsung.Io.FileDescriptor.readAll();
+	}
+	Samsung.IO.File.closeFile(Samsung.IO.FileDescriptor);
+	
+	return Samsung.IO.FileString;
+};
+
 Samsung.IO.loadJSONFile = function(filename, isShared){
 	if (!isShared) isShared = false;
 	
