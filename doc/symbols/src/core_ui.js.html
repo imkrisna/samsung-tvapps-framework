@@ -59,47 +59,46 @@
 <!-- ============================== source code ============================ -->
 
 			<pre id="source-code" class="prettyprint linenums">
-				var System = System || new Object();
+				var UI = new Object();
 
-System.Cache = new Object();
+UI.SCENE_PREFIX	= "framework_scene_";
+UI.focusedScene	= null;
 
-System.Cache.Scene		= new Object();	
-System.Cache.HtmlDOM 	= new Object();
-System.Cache.Storage 	= new Object();
+UI.showScene = function(sceneName, data){
+	var sceneObject = System.Cache.getScene(sceneName);
+	if (sceneObject === null){
+		sceneObject = eval("(new " + sceneName + "())");
+		sceneObject.initialize();
+	}
+	
+	var sceneWrapper = System.Cache.getHtml(UI.SCENE_PREFIX + sceneName);
+	sceneWrapper.style.display = STRING.CSS_DISPLAY_BLOCK;
+	sceneObject.handleShow(data);
+};
 
-System.Cache.registerScene = function(sceneName, sceneObject){
-	if (System.TYPE_UNDEFINED === System.Cache.Scene[sceneName]){
-		System.Cache.Scene[sceneName] = sceneObject;
+UI.hideScene = function(sceneName){
+	var sceneObject = System.Cache.getScene(sceneName);
+	if (sceneObject !== null){
+		var sceneWrapper = System.Cache.getHtml(UI.SCENE_PREFIX + sceneName);
+		sceneWrapper.style.display = STRING.CSS_DISPLAY_NONE;
+		sceneObject.handleHide();
 	}
 };
 
-System.Cache.getScene = function(sceneName){
-	if (System.TYPE_UNDEFINED === System.Cache.Scene[sceneName]){
-		return null;
-	}
-	else{
-		return System.Cache.Scene[sceneName];
+UI.focusScene = function(sceneName){
+	var sceneObject = System.Cache.getScene(sceneName);
+	if (sceneObject !== null){
+		UI.focusedScene = sceneName;
+		sceneObject.handleFocus();
 	}
 };
 
-System.Cache.getHtml = function(htmlId){
-	if (System.TYPE_UNDEFINED === System.Cache.HtmlDOM[htmlId]){
-		System.Cache.HtmlDOM[htmlId] = document.getElementById(htmlId);
+UI.changeScene = function(sceneName, data){
+	UI.showScene(sceneName, data);
+	if (UI.focusedScene !== null &amp;&amp; UI.focusedScene !== sceneName) {
+		UI.hideScene(UI.focusedScene);
 	}
-	return System.Cache.HtmlDOM[htmlId];
-};
-
-System.Cache.setItem = function(key, value){
-	System.Cache.Storage[key] = value;
-};
-
-System.Cache.getItem = function(key){
-	if (System.TYPE_UNDEFINED === System.Cache.Storage[key]){
-		return null;
-	}
-	else{
-		return System.Cache.Storage[key];
-	}
+	UI.focusScene(sceneName);
 };
 			</pre>
 		</div>

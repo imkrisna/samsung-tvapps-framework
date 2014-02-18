@@ -59,48 +59,53 @@
 <!-- ============================== source code ============================ -->
 
 			<pre id="source-code" class="prettyprint linenums">
-				var System = System || new Object();
-
-System.Cache = new Object();
-
-System.Cache.Scene		= new Object();	
-System.Cache.HtmlDOM 	= new Object();
-System.Cache.Storage 	= new Object();
-
-System.Cache.registerScene = function(sceneName, sceneObject){
-	if (System.TYPE_UNDEFINED === System.Cache.Scene[sceneName]){
-		System.Cache.Scene[sceneName] = sceneObject;
+				Object.prototype.implements = function(someClass){
+	for (var key in someClass.prototype){
+		if (this.prototype[key] === STRING.JS_UNDEFINED){
+			this.prototype[key] = someClass.prototype[key];
+		}
 	}
 };
 
-System.Cache.getScene = function(sceneName){
-	if (System.TYPE_UNDEFINED === System.Cache.Scene[sceneName]){
-		return null;
-	}
-	else{
-		return System.Cache.Scene[sceneName];
+var Framework = Framework || new Object();
+
+Framework.LOADED_SCENE_LIST 	= [];
+Framework.LOADED_SCRIPT_LIST	= [];
+Framework.LOADED_CSS_LIST		= [];
+
+Framework.loadListedScenes = function(){
+	for (var i = 0; i &lt; Framework.LOADED_SCENE_LIST.length; i++){
+		Framework.loadScene(Framework.LOADED_SCENE_LIST[i]);
 	}
 };
 
-System.Cache.getHtml = function(htmlId){
-	if (System.TYPE_UNDEFINED === System.Cache.HtmlDOM[htmlId]){
-		System.Cache.HtmlDOM[htmlId] = document.getElementById(htmlId);
-	}
-	return System.Cache.HtmlDOM[htmlId];
+Framework.loadScene = function(sceneName){
+	
 };
 
-System.Cache.setItem = function(key, value){
-	System.Cache.Storage[key] = value;
+Framework.loadListedScripts = function(){
+	for (var i = 0; i &lt; Framework.LOADED_SCRIPT_LIST; i++){
+		Framework.loadScript(Framework.LOADED_SCRIPT_LIST[i]);
+	}
 };
 
-System.Cache.getItem = function(key){
-	if (System.TYPE_UNDEFINED === System.Cache.Storage[key]){
-		return null;
-	}
-	else{
-		return System.Cache.Storage[key];
+Framework.loadScript = function(path){
+	
+};
+
+Framework.loadListedCSS = function(){
+	for (var i = 0; i &lt; Framework.LOADED_CSS_LIST; i++){
+		Framework.loadCSS(Framework.LOADED_CSS_LIST[i]);
 	}
 };
+
+Framework.loadCSS = function(path){
+	
+};
+	
+Framework.loadListedScenes();
+Framework.loadListedScripts();
+Framework.loadListedCSS();
 			</pre>
 		</div>
 	</div>

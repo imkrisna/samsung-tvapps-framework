@@ -6,7 +6,13 @@
  * @version 2014.17.02
  * 
  * */
-var Main = new Object();
+var Main = null;
+
+/**
+ * @type Object
+ * */
+Main = new Object();
+
 
 /**
  * Runtime delay (in miliseconds) from loading to executing framework, Required to provide time for resources

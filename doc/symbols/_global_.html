@@ -1,1230 +1,338 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="generator" content="JsDoc Toolkit" />
-		
-		<title>JsDoc Reference - _global_</title>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="JsDoc Toolkit" />
+	<title>JsDoc Reference - _global_</title>
 
-		<style type="text/css">
-			/* default.css */
-body
-{
-	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
-	width: 800px;
-}
+	<link media="all" rel="stylesheet" href="../css/common.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../css/prettify.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
+	<style type="text/css">
+		.icon-jsdoc {
+			background: url("../img/classicons.png") no-repeat;
+		}
+	</style>
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/prettify.js" type="text/javascript"></script>
+	<script src="../js/accordion.js" type="text/javascript"></script>
+</head>
 
-.header
-{
-	clear: both;
-	background-color: #ccc;
-	padding: 8px;
-}
-
-h1
-{
-	font-size: 150%;
-	font-weight: bold;
-	padding: 0;
-	margin: 1em 0 0 .3em;
-}
-
-hr
-{
-	border: none 0;
-	border-top: 1px solid #7F8FB1;
-	height: 1px;
-}
-
-pre.code
-{
-	display: block;
-	padding: 8px;
-	border: 1px dashed #ccc;
-}
-
-#index
-{
-	margin-top: 24px;
-	float: left;
-	width: 160px;
-	position: absolute;
-	left: 8px;
-	background-color: #F3F3F3;
-	padding: 8px;
-}
-
-#content
-{
-	margin-left: 190px;
-	width: 600px;
-}
-
-.classList
-{
-	list-style-type: none;
-	padding: 0;
-	margin: 0 0 0 8px;
-	font-family: arial, sans-serif;
-	font-size: 1em;
-	overflow: auto;
-}
-
-.classList li
-{
-	padding: 0;
-	margin: 0 0 8px 0;
-}
-
-.summaryTable { width: 100%; }
-
-h1.classTitle
-{
-	font-size:170%;
-	line-height:130%;
-}
-
-h2 { font-size: 110%; }
-caption, div.sectionTitle
-{
-	background-color: #7F8FB1;
-	color: #fff;
-	font-size:130%;
-	text-align: left;
-	padding: 2px 6px 2px 6px;
-	border: 1px #7F8FB1 solid;
-}
-
-div.sectionTitle { margin-bottom: 8px; }
-.summaryTable thead { display: none; }
-
-.summaryTable td
-{
-	vertical-align: top;
-	padding: 4px;
-	border-bottom: 1px #7F8FB1 solid;
-	border-right: 1px #7F8FB1 solid;
-}
-
-/*col#summaryAttributes {}*/
-.summaryTable td.attributes
-{
-	border-left: 1px #7F8FB1 solid;
-	width: 140px;
-	text-align: right;
-}
-
-td.attributes, .fixedFont
-{
-	line-height: 15px;
-	color: #002EBE;
-	font-family: "Courier New",Courier,monospace;
-	font-size: 13px;
-}
-
-.summaryTable td.nameDescription
-{
-	text-align: left;
-	font-size: 13px;
-	line-height: 15px;
-}
-
-.summaryTable td.nameDescription, .description
-{
-	line-height: 15px;
-	padding: 4px;
-	padding-left: 4px;
-}
-
-.summaryTable { margin-bottom: 8px; }
-
-ul.inheritsList
-{
-	list-style: square;
-	margin-left: 20px;
-	padding-left: 0;
-}
-
-.detailList {
-	margin-left: 20px; 
-	line-height: 15px;
-}
-.detailList dt { margin-left: 20px; }
-
-.detailList .heading
-{
-	font-weight: bold;
-	padding-bottom: 6px;
-	margin-left: 0;
-}
-
-.light, td.attributes, .light a:link, .light a:visited
-{
-	color: #777;
-	font-style: italic;
-}
-
-.fineprint
-{
-	text-align: right;
-	font-size: 10px;
-}
-		</style>
-	</head>
-
-	<body>
+<body onload="prettyPrint()"><div class="container-fluid">
 <!-- ============================== header ================================= -->	
-		<!-- begin static/header.html -->
-		<div id="header">
-</div>
-		<!-- end static/header.html -->
+	<!-- begin static/header.html -->
+	<header class="header navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#"><strong>JsDoc</strong> Reference</a>
+				<ul id="class-file-selector" class="nav">
+					<li><a href="../index.html">Class Index</a></li>
+					<li><a href="../files.html">File Index</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!-- end static/header.html -->
 
 <!-- ============================== classes index ============================ -->
-		<div id="index">
+	<div class="row-fluid">
+		<div id="index" class="span3">
 			<!-- begin publish.classesIndex -->
-			<div align="center"><a href="../index.html">Class Index</a>
-| <a href="../files.html">File Index</a></div>
-<hr />
-<h2>Classes</h2>
-<ul class="classList">
-	
-	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
-	
-	<li><a href="../symbols/Main.html">Main</a></li>
-	
-	<li><a href="../symbols/Samsung.html">Samsung</a></li>
-	
-	<li><a href="../symbols/Samsung.SEF.html">Samsung.SEF</a></li>
-	
-	<li><a href="../symbols/STRING.html">STRING</a></li>
-	
-</ul>
-<hr />
+			<div class="well" id="class-list">
+	<ul class="nav nav-list">
+		<li class="nav-header">Classes</li>
+		
+			<li><a href="../symbols/STRING.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">STRING</span></span></a></li>
+		
+			<li><a href="../symbols/Samsung.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">Samsung</span></span></a></li>
+		
+			<li><a href="../symbols/Samsung.SEF.html"><span class="indent" style="padding-left:14px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">SEF</span></span></a></li>
+		
+			<li><a href="../symbols/_global_.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">_global_</span></span></a></li>
+		
+	</ul>
+</div>
+
 			<!-- end publish.classesIndex -->
 		</div>
 		
-		<div id="content">
+		<div id="content" class="span9">
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Built-In Namespace _global_
+				<img src="../img/namespace.png" alt="Built-In Namespace " class="jsdoc-large-icon" />_global_
+				
+				
+				
+				
+				
+				
 			</h1>
-
-<!-- ============================== class summary ========================== -->			
-			<p class="description">
-				
-				
-			
-				
-				
-				
-			</p>
-
-<!-- ============================== constructor summary ==================== -->			
-			
-
-<!-- ============================== properties summary ===================== -->
-			
-
-<!-- ============================== methods summary ======================== -->
-			
-				
-				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
-					<caption>Method Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#b64_hmac_sha1">b64_hmac_sha1</a></b>(key, data)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#b64_sha1">b64_sha1</a></b>(s)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#BasicScene">BasicScene</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#binb2b64">binb2b64</a></b>(binarray)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#binb2hex">binb2hex</a></b>(binarray)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#binb2str">binb2str</a></b>(bin)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#core_hmac_sha1">core_hmac_sha1</a></b>(key, data)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#core_sha1">core_sha1</a></b>(x, len)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#hex_hmac_sha1">hex_hmac_sha1</a></b>(key, data)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#hex_sha1">hex_sha1</a></b>(s)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#md5">md5</a></b>(string)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#rol">rol</a></b>(num, cnt)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#safe_add">safe_add</a></b>(x, y)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#sha1_ft">sha1_ft</a></b>(t, b, c, d)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#sha1_kt">sha1_kt</a></b>(t)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#sha1_vm_test">sha1_vm_test</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#str2binb">str2binb</a></b>(str)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#str_hmac_sha1">str_hmac_sha1</a></b>(key, data)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/_global_.html#str_sha1">str_sha1</a></b>(s)
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
-				
-				
-				
-			
-<!-- ============================== events summary ======================== -->
-			
-
-<!-- ============================== constructor details ==================== -->		
-			
-
-<!-- ============================== field details ========================== -->		
-			
-
-<!-- ============================== method details ========================= -->		
-			
-				<div class="sectionTitle">
-					Method Detail
-				</div>
-				
-					<a name="b64_hmac_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>b64_hmac_sha1</b>(key, data)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>key</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>data</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="b64_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>b64_sha1</b>(s)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>s</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="BasicScene"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>BasicScene</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/application_class_scene.js.html">scene.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="binb2b64"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>binb2b64</b>(binarray)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>binarray</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="binb2hex"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>binb2hex</b>(binarray)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>binarray</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="binb2str"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>binb2str</b>(bin)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>bin</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="core_hmac_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>core_hmac_sha1</b>(key, data)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>key</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>data</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="core_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>core_sha1</b>(x, len)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>x</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>len</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="hex_hmac_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>hex_hmac_sha1</b>(key, data)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>key</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>data</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="hex_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>hex_sha1</b>(s)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>s</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="md5"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>md5</b>(string)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_md5.js.html">md5.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>string</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="rol"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>rol</b>(num, cnt)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>num</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>cnt</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="safe_add"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>safe_add</b>(x, y)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>x</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>y</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="sha1_ft"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>sha1_ft</b>(t, b, c, d)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>t</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>b</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>c</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>d</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="sha1_kt"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>sha1_kt</b>(t)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>t</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="sha1_vm_test"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>sha1_vm_test</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="str2binb"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>str2binb</b>(str)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>str</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="str_hmac_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>str_hmac_sha1</b>(key, data)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>key</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>data</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="str_sha1"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>str_sha1</b>(s)
-					
-					</div>
-					<div class="description">
-						
-						
-							<br />
-							<i>Defined in: </i> <a href="../symbols/src/lib_util_encrypt_sha1.js.html">sha1.js</a>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>s</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					
-				
 			
 			
-<!-- ============================== event details ========================= -->		
-			
-			
-			<hr />
-		</div>
+			<div class="jsdoc-hierarchy-nav">
+				<ul class="breadcrumb">
+					
+						<li class="jsdoc-hierarchy-caption">Hierarchy</li>
+							
+						<li class="active">_global_</li>
+					
+				</ul>
+			</div>
 
-		
+<!-- ============================== constructor summary ==================== -->
+			
+
+<!-- ============================== instance members summary ===================== -->
+			
+			
+				<h3>Instance members</h3>
+				
+					<h4>Instance Methods<span class="jsdoc-inherits-caption pull-right">Defined By</span></h4>
+					<div class="jsdoc-members">
+						
+							<div class="jsdoc-member">
+								<div class="jsdoc-member-definition">
+									<div class="jsdoc-member-content">
+										<b>B</b>
+										<span class="signature">(  )</span>
+										
+										
+										
+										
+										<span class="jsdoc-inherits-from pull-right"><a href="../symbols/_global_.html">_global_</a></span>
+									</div>
+								</div>
+								<div class="jsdoc-member-description">
+									<div class="jsdoc-member-content">
+										<div class="jsdoc-member-summary">
+											No description.
+											<span class="pull-right"><a href="../symbols/src/doc_js_jquery-1.7.2.min.js.html#lineundefined">code »</a></span>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								</div>
+							</div>
+						
+							<div class="jsdoc-member accordion-button">
+								<div class="jsdoc-member-definition">
+									<div class="jsdoc-member-content">
+										<b>cv</b>
+										<span class="signature">( <span class="jsdoc-typedesc">unknown</span> a, <span class="jsdoc-typedesc">unknown</span> b, <span class="jsdoc-typedesc">unknown</span> c, <span class="jsdoc-typedesc">unknown</span> d )</span>
+										
+										
+										
+										
+										<span class="jsdoc-inherits-from pull-right"><a href="../symbols/_global_.html">_global_</a></span>
+									</div>
+								</div>
+								<div class="jsdoc-member-description">
+									<div class="jsdoc-member-content">
+										<div class="jsdoc-member-summary">
+											No description.
+											<span class="pull-right"><a href="../symbols/src/doc_js_jquery-1.7.2.min.js.html#lineundefined">code »</a></span>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="jsdoc-member-detail accordion-content">
+												
+													<b>Parameters</b>
+													<dl>
+														
+															<dt>a : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+															<dt>b : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+															<dt>c : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+															<dt>d : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+													</dl>
+												
+												
+											</div>
+										
+									</div>
+								</div>
+							</div>
+						
+							<div class="jsdoc-member accordion-button">
+								<div class="jsdoc-member-definition">
+									<div class="jsdoc-member-content">
+										<b>e</b>
+										<span class="signature">( <span class="jsdoc-typedesc">unknown</span> c )</span>
+										
+										
+										
+										
+										<span class="jsdoc-inherits-from pull-right"><a href="../symbols/_global_.html">_global_</a></span>
+									</div>
+								</div>
+								<div class="jsdoc-member-description">
+									<div class="jsdoc-member-content">
+										<div class="jsdoc-member-summary">
+											No description.
+											<span class="pull-right"><a href="../symbols/src/doc_js_jquery-1.7.2.min.js.html#lineundefined">code »</a></span>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="jsdoc-member-detail accordion-content">
+												
+													<b>Parameters</b>
+													<dl>
+														
+															<dt>c : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+													</dl>
+												
+												
+											</div>
+										
+									</div>
+								</div>
+							</div>
+						
+							<div class="jsdoc-member">
+								<div class="jsdoc-member-definition">
+									<div class="jsdoc-member-content">
+										<b>g</b>
+										<span class="signature">(  )</span>
+										
+										
+										
+										
+										<span class="jsdoc-inherits-from pull-right"><a href="../symbols/_global_.html">_global_</a></span>
+									</div>
+								</div>
+								<div class="jsdoc-member-description">
+									<div class="jsdoc-member-content">
+										<div class="jsdoc-member-summary">
+											No description.
+											<span class="pull-right"><a href="../symbols/src/doc_js_jquery-1.7.2.min.js.html#lineundefined">code »</a></span>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								</div>
+							</div>
+						
+							<div class="jsdoc-member accordion-button">
+								<div class="jsdoc-member-definition">
+									<div class="jsdoc-member-content">
+										<b>u</b>
+										<span class="signature">( <span class="jsdoc-typedesc">unknown</span> a, <span class="jsdoc-typedesc">unknown</span> b )</span>
+										
+										
+										
+										
+										<span class="jsdoc-inherits-from pull-right"><a href="../symbols/_global_.html">_global_</a></span>
+									</div>
+								</div>
+								<div class="jsdoc-member-description">
+									<div class="jsdoc-member-content">
+										<div class="jsdoc-member-summary">
+											No description.
+											<span class="pull-right"><a href="../symbols/src/doc_js_jquery-1.7.2.min.js.html#lineundefined">code »</a></span>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+											<div class="jsdoc-member-detail accordion-content">
+												
+													<b>Parameters</b>
+													<dl>
+														
+															<dt>a : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+															<dt>b : <span class="jsdoc-typedesc">unknown</span></dt>
+															<dd>No description.</dd>
+														
+													</dl>
+												
+												
+											</div>
+										
+									</div>
+								</div>
+							</div>
+						
+					</div>
+				
+				
+					<h4>Instance Properties<span class="jsdoc-inherits-caption pull-right">Defined By</span></h4>
+					<div class="jsdoc-members">
+						
+							<div class="jsdoc-member">
+								<div class="jsdoc-member-definition">
+									<b><a id="Main" href="../symbols/_global_.html#Main">Main</a></b>
+									 : Object
+									
+									
+									
+									
+									<span class="jsdoc-inherits-from pull-right"><a href="../symbols/_global_.html">_global_</a></span>
+								</div>
+								<div class="jsdoc-member-description">
+									<div class="jsdoc-member-content">
+										<div class="jsdoc-member-summary">
+											No description.
+											<span class="pull-right"><a href="../symbols/src/main.js.html#lineundefined">code »</a></span>
+										</div>
+										
+										
+										
+										
+										
+										
+										
+									</div>
+								</div>
+							</div>
+						
+					</div>
+				
+			
+
+<!-- ============================== static members summary ======================== -->
+			
+			
+
 <!-- ============================== footer ================================= -->
-		<div class="fineprint" style="clear:both">
-			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Feb 17 2014 14:49:14 GMT+0700 (ICT)
-		</div>
-	</body>
+	<footer class="footer">
+		
+		<p>Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.4.0 on Mon Feb 17 2014 16:25:07 GMT+0700 (ICT)</p>
+	</footer>
+</div></body>
 </html>

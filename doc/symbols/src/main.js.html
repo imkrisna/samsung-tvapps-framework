@@ -1,83 +1,162 @@
-<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
-	.KEYW {color: #933;}
-	.COMM {color: #bbb; font-style: italic;}
-	.NUMB {color: #393;}
-	.STRN {color: #393;}
-	.REGX {color: #339;}
-	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
-	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
-<span class='line'>  2</span>  * Application Loader for Samsung Smart TV Javascript application
-<span class='line'>  3</span>  * @namespace Main
-<span class='line'>  4</span>  * 
-<span class='line'>  5</span>  * @author &lt;a href="mailto:im.krisna@gmail.com">I Made Krisna Widhiastra&lt;/a>
-<span class='line'>  6</span>  * @version 2014.17.02
-<span class='line'>  7</span>  * 
-<span class='line'>  8</span>  * */</span><span class="WHIT">
-<span class='line'>  9</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Main</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Object</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 10</span> 
-<span class='line'> 11</span> </span><span class="COMM">/**
-<span class='line'> 12</span>  * Runtime delay (in miliseconds) from loading to executing framework, Required to provide time for resources
-<span class='line'> 13</span>  * initializing themselves.
-<span class='line'> 14</span>  * 
-<span class='line'> 15</span>  * @type Number
-<span class='line'> 16</span>  * @default 1000
-<span class='line'> 17</span>  * 
-<span class='line'> 18</span>  * @constant
-<span class='line'> 19</span>  * 
-<span class='line'> 20</span>  * */</span><span class="WHIT">
-<span class='line'> 21</span> </span><span class="NAME">Main.PREPARE_DELAY</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1000</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 22</span> 
-<span class='line'> 23</span> </span><span class="COMM">/**
-<span class='line'> 24</span>  * Javascript Timeout object to execute framework construction.
-<span class='line'> 25</span>  * @type Object
-<span class='line'> 26</span>  * */</span><span class="WHIT">
-<span class='line'> 27</span> </span><span class="NAME">Main.Runner</span><span class="WHIT"> 		</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 28</span> 
-<span class='line'> 29</span> </span><span class="COMM">/**
-<span class='line'> 30</span>  * Callback function which is called after the index.html loaded
-<span class='line'> 31</span>  * @description Preparing all required resources and executing the {@link Main.Runner} and load framework.
-<span class='line'> 32</span>  * 
-<span class='line'> 33</span>  * @event 
-<span class='line'> 34</span>  * */</span><span class="WHIT">
-<span class='line'> 35</span> </span><span class="NAME">Main.onLoad</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 36</span> </span><span class="WHIT">	</span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="STRN">"anchor"</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">focus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 37</span> </span><span class="WHIT">	</span><span class="NAME">System.ready</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 38</span> </span><span class="WHIT">	</span><span class="WHIT">
-<span class='line'> 39</span> </span><span class="WHIT">	</span><span class="NAME">Main.Runner</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">setTimeout</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 40</span> </span><span class="WHIT">		</span><span class="KEYW">try</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 41</span> </span><span class="WHIT">			</span><span class="NAME">System.Log.setMode</span><span class="PUNC">(</span><span class="NAME">System.Log.MODE_DEVELOPMENT</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 42</span> </span><span class="WHIT">			</span><span class="NAME">System.Log.setLevel</span><span class="PUNC">(</span><span class="NAME">System.Log.LEVEL_DEBUG</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 43</span> </span><span class="WHIT">			</span><span class="WHIT">
-<span class='line'> 44</span> </span><span class="WHIT">			</span><span class="NAME">Samsung.SEF.loadAll</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 45</span> </span><span class="WHIT">			</span><span class="WHIT">
-<span class='line'> 46</span> </span><span class="WHIT">			</span><span class="NAME">System.Log.info</span><span class="PUNC">(</span><span class="STRN">"[main.js] Main.Runner Execution Complete!"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 47</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 48</span> </span><span class="WHIT">		</span><span class="KEYW">catch</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">error</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 49</span> </span><span class="WHIT">			</span><span class="NAME">System.Log.error</span><span class="PUNC">(</span><span class="STRN">"[main.js] Main.Runner Execution Exception: "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">error.message</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 50</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 51</span> </span><span class="WHIT">		</span><span class="WHIT">
-<span class='line'> 52</span> </span><span class="WHIT">		</span><span class="NAME">clearTimeout</span><span class="PUNC">(</span><span class="NAME">Main.Runner</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 53</span> </span><span class="WHIT">		</span><span class="NAME">Main.Runner</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 54</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Main.PREPARE_DELAY</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 55</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 56</span> 
-<span class='line'> 57</span> </span><span class="COMM">/**
-<span class='line'> 58</span>  * Callback function which is called on application closing
-<span class='line'> 59</span>  * @description Clean-up all resources in this function to prevent memory leak.
-<span class='line'> 60</span>  * 
-<span class='line'> 61</span>  * @event
-<span class='line'> 62</span>  * 
-<span class='line'> 63</span>  * */</span><span class="WHIT">
-<span class='line'> 64</span> </span><span class="NAME">Main.onUnload</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 65</span> </span><span class="WHIT">	</span><span class="WHIT">
-<span class='line'> 66</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 67</span> 
-<span class='line'> 68</span> </span><span class="COMM">/**
-<span class='line'> 69</span>  * Callback function which is called on user remocon input key pressed
-<span class='line'> 70</span>  * @description Handling the generated keycode from event.keyCode
-<span class='line'> 71</span>  * 
-<span class='line'> 72</span>  * @event
-<span class='line'> 73</span>  * */</span><span class="WHIT">
-<span class='line'> 74</span> </span><span class="NAME">Main.keyDown</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 75</span> </span><span class="WHIT">	</span><span class="WHIT">
-<span class='line'> 76</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Source - undefined</title>
+	<meta name="generator" content="JsDoc Toolkit" />
+	
+	<link media="all" rel="stylesheet" href="../../css/common.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/prettify.css" type="text/css" />
+	<style type="text/css">
+		.icon-jsdoc {
+			background: url("../../img/classicons.png") no-repeat;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="../../js/prettify.js" type="text/javascript"></script>
+	<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body><div class="container-fluid">
+<!-- ============================== header ================================= -->	
+	<!-- begin static/header.html -->
+	<header class="header navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#"><strong>JsDoc</strong> Reference</a>
+				<ul id="class-file-selector" class="nav">
+					<li><a href="../../index.html">Class Index</a></li>
+					<li><a href="../../files.html">File Index</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+	<div class="row-fluid">
+		<div id="index" class="span3">
+			<!-- begin publish.classesIndex -->
+			<div class="well" id="class-list">
+	<ul class="nav nav-list">
+		<li class="nav-header">Classes</li>
+		
+			<li><a href="../../symbols/STRING.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">STRING</span></span></a></li>
+		
+			<li><a href="../../symbols/Samsung.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">Samsung</span></span></a></li>
+		
+			<li><a href="../../symbols/Samsung.SEF.html"><span class="indent" style="padding-left:14px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">SEF</span></span></a></li>
+		
+			<li><a href="../../symbols/_global_.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">_global_</span></span></a></li>
+		
+	</ul>
+</div>
+
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content" class="span9">
+<!-- ============================== source code ============================ -->
+
+			<pre id="source-code" class="prettyprint linenums">
+				/**
+ * Application Loader for Samsung Smart TV Javascript application
+ * @namespace Main
+ * 
+ * @author &lt;a href="mailto:im.krisna@gmail.com"&gt;I Made Krisna Widhiastra&lt;/a&gt;
+ * @version 2014.17.02
+ * 
+ * */
+var Main = null;
+
+/**
+ * @type Object
+ * */
+Main = new Object();
+
+
+/**
+ * Runtime delay (in miliseconds) from loading to executing framework, Required to provide time for resources
+ * initializing themselves.
+ * 
+ * @type Number
+ * @default 1000
+ * 
+ * @constant
+ * 
+ * */
+Main.PREPARE_DELAY	= 1000;
+
+/**
+ * Javascript Timeout object to execute framework construction.
+ * @type Object
+ * */
+Main.Runner 		= null;
+
+/**
+ * Callback function which is called after the index.html loaded
+ * @description Preparing all required resources and executing the {@link Main.Runner} and load framework.
+ * 
+ * @event 
+ * */
+Main.onLoad = function(){
+	document.getElementById("anchor").focus();
+	System.ready();
+	
+	Main.Runner = setTimeout(function(){
+		try{
+			System.Log.setMode(System.Log.MODE_DEVELOPMENT);
+			System.Log.setLevel(System.Log.LEVEL_DEBUG);
+			
+			Samsung.SEF.loadAll();
+			
+			System.Log.info("[main.js] Main.Runner Execution Complete!");
+		}
+		catch (error){
+			System.Log.error("[main.js] Main.Runner Execution Exception: " + error.message);
+		}
+		
+		clearTimeout(Main.Runner);
+		Main.Runner = null;
+	}, Main.PREPARE_DELAY);
+};
+
+/**
+ * Callback function which is called on application closing
+ * @description Clean-up all resources in this function to prevent memory leak.
+ * 
+ * @event
+ * 
+ * */
+Main.onUnload = function(){
+	
+};
+
+/**
+ * Callback function which is called on user remocon input key pressed
+ * @description Handling the generated keycode from event.keyCode
+ * 
+ * @event
+ * */
+Main.keyDown = function(){
+	
+};
+			</pre>
+		</div>
+	</div>
+	
+<!-- ============================== footer ================================= -->
+	<footer class="footer">
+		
+		<p>Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.4.0 on Mon Feb 17 2014 16:25:08 GMT+0700 (ICT)</p>
+	</footer>
+</div>
+<script type="text/javascript">
+	prettyPrint();
+	var i = 1;
+	$('#source-code li').each(function() {
+		$(this).attr({ id: 'line' + (i++) });
+	});
+</script>
+</body>
+</html>

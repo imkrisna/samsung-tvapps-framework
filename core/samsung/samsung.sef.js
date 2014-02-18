@@ -6,7 +6,7 @@
  * @version 2014.17.02
  * 
  * */
-Samsung.SEF = new Object();
+Samsung.SEF = Samsung.SEF || new Object();
 
 Samsung.SEF.TV			= null;
 Samsung.SEF.Audio		= null;

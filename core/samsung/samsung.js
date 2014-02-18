@@ -5,6 +5,7 @@
  * @author <a href="mailto:im.krisna@gmail.com">I Made Krisna Widhiastra</a>
  * @version 2014.17.02
  * 
+ * @static
  * */
 var Samsung = Samsung || new Object();
 
