@@ -18,6 +18,10 @@ Samsung.SEF.AppCommon	= null;
 Samsung.SEF.Network		= null;
 Samsung.SEF.Storage		= null;
 
+/**
+ * Load all SEF Plugin references
+ * 
+ * */
 Samsung.SEF.loadAll = function(){
 	System.Log.verbose("[core/samsung/samsung.sef.js] Samsung.SEF.loadAll()");
 	
