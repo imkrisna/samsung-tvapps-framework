@@ -35,7 +35,8 @@ Framework.LOADED_SCRIPT_LIST	= [
 	"core/system/system.info.js",
 	"core/system/system.log.js",
 	
-	"application/class/scene.js"
+	"application/class/scene.js",
+	"application/class/scene.nservice.js"
 ];
 Framework.LOADED_CSS_LIST		= [
 	"default720.css"
