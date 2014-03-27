@@ -27,6 +27,7 @@ Framework.LOADED_SCRIPT_LIST	= [
 	"core/samsung/samsung.js",
 	"core/samsung/samsung.sef.js",
 	"core/samsung/samsung.io.js",
+	"core/samsung.samsung.io.usb.js",
 	"core/samsung/net/samsung.nservice.js",
 	
 	"core/system/system.js",
