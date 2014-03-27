@@ -16,7 +16,10 @@ Framework.SCENE_HTML_PATH		= Framework.SCENE_PATH + "html/";
 Framework.SCENE_CSS_PATH		= Framework.SCENE_PATH + "css/";
 Framework.SCENE_JS_PATH			= Framework.SCENE_PATH + "js/";
 
-Framework.LOADED_SCENE_LIST 	= [];
+Framework.LOADED_SCENE_LIST 	= [
+	"SampleScene1",
+	"SampleScene2"
+];
 Framework.LOADED_SCRIPT_LIST	= [
 	"core/string.js",
 	"core/ui.js",
@@ -46,9 +49,8 @@ Framework.loadListedScenes = function(){
 Framework.loadScene = function(sceneName){
 	if (document.getElementById(Framework.SCENE_PREFIX + sceneName) !== null) return;
 	
-	Samsung.IO.FileDescriptor = Samsung.IO.File.openFile(Framework.SCENE_HTML_PATH + sceneName + ".html", Samsung.IO.FILE_MODE_READ);
-	$("body").append("<div id='" + Framework.SCENE_PREFIX + sceneName + "' class='scene-container'>" + Samsung.IO.FileDescriptor.readAll() + "</div>");
-	Samsung.IO.File.closeFile(Samsung.IO.FileDescriptor);
+	var sceneHtml = Samsung.IO.loadFile(Framework.SCENE_HTML_PATH + sceneName + ".html");
+	$("body").append("<div id='" + Framework.SCENE_PREFIX + sceneName + "' class='scene-container' style='display:none'>" + sceneHtml + "</div>");
 	
 	Framework.loadCSS(Framework.SCENE_CSS_PATH + sceneName + ".css");
 	Framework.loadScript(Framework.SCENE_JS_PATH + sceneName + ".js");
