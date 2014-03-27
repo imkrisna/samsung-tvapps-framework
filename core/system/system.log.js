@@ -17,6 +17,7 @@ System.Log.COLOR_INFO		= "#3300FF";
 System.Log.COLOR_WARNING	= "#FFCC00";
 System.Log.COLOR_ERROR		= "#FF0000";
 
+System.Log.CONTAINER_ID		= "framework-debug-container"
 System.Log.HTML_ID			= "framework-debug";
 System.Log.ALERT_PREFIX		= "### LOG ### ";
 System.Log.BUFFER_SIZE		= 50;
@@ -28,14 +29,14 @@ System.Log.ActiveLevel		= System.Log.LEVEL_WARNING;
 
 
 System.Log.setMode = function(mode){
-	var debugHtml = System.Cache.getHtml(System.Log.HTML_ID);
+	var debugContainer = System.Cache.getHtml(System.Log.CONTAINER_ID);
 	
 	switch (mode){
 		case System.Log.MODE_DEBUGGING:
-			debugHtml.style.display = STRING.CSS_DISPLAY_BLOCK;
+			debugContainer.style.display = STRING.CSS_DISPLAY_BLOCK;
 			break;
 		default:
-			debugHtml.style.display = STRING.CSS_DISPLAY_NONE;
+			debugContainer.style.display = STRING.CSS_DISPLAY_NONE;
 			break;
 	}
 	
