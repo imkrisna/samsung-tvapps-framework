@@ -1,7 +1,9 @@
+alert("[Framework Debug] Loading Framework...");
+
 Object.prototype.implements = function(someClass){
 	for (var key in someClass.prototype){
-		if (this.prototype[key] === STRING.JS_UNDEFINED){
-			this.prototype[key] = someClass.prototype[key];
+		if (typeof(this[key]) === STRING.JS_UNDEFINED){
+			this[key] = someClass.prototype[key];
 		}
 	}
 };
@@ -27,7 +29,9 @@ Framework.LOADED_SCRIPT_LIST	= [
 	"core/system/system.js",
 	"core/system/system.cache.js",
 	"core/system/system.info.js",
-	"core/system/system.log.js"
+	"core/system/system.log.js",
+	
+	"application/class/scene.js"
 ];
 Framework.LOADED_CSS_LIST		= [
 	"default720.css"
@@ -41,35 +45,43 @@ Framework.loadListedScenes = function(){
 
 Framework.loadScene = function(sceneName){
 	if (document.getElementById(Framework.SCENE_PREFIX + sceneName) !== null) return;
-		
+	
 	Samsung.IO.FileDescriptor = Samsung.IO.File.openFile(Framework.SCENE_HTML_PATH + sceneName + ".html", Samsung.IO.FILE_MODE_READ);
 	$("body").append("<div id='" + Framework.SCENE_PREFIX + sceneName + "' class='scene-container'>" + Samsung.IO.FileDescriptor.readAll() + "</div>");
 	Samsung.IO.File.closeFile(Samsung.IO.FileDescriptor);
 	
 	Framework.loadCSS(Framework.SCENE_CSS_PATH + sceneName + ".css");
 	Framework.loadScript(Framework.SCENE_JS_PATH + sceneName + ".js");
+	
+	alert("[Framework Debug] Scene Loaded: " + sceneName);
 };
 
 Framework.loadListedScripts = function(){
-	for (var i = 0; i < Framework.LOADED_SCRIPT_LIST; i++){
+	for (var i = 0; i < Framework.LOADED_SCRIPT_LIST.length; i++){
 		Framework.loadScript(Framework.LOADED_SCRIPT_LIST[i]);
 	}
 };
 
 Framework.loadScript = function(path){
 	$("head").append("<script type='text/javascript' src='" + path + "'></script>");
+	
+	alert("[Framework Debug] Script Loaded: " + path);
 };
 
 Framework.loadListedCSS = function(){
-	for (var i = 0; i < Framework.LOADED_CSS_LIST; i++){
+	for (var i = 0; i < Framework.LOADED_CSS_LIST.length; i++){
 		Framework.loadCSS(Framework.LOADED_CSS_LIST[i]);
 	}
 };
 
 Framework.loadCSS = function(path){
 	$("head").append("<link rel='stylesheet' type='text/css' href='" + path + "' />");
+	
+	alert("[Framework Debug] CSS Loaded: " + path);
 };
 	
 Framework.loadListedScripts();
 Framework.loadListedCSS();
 Framework.loadListedScenes();
+
+alert("[Framework Debug] Framework Loaded!");

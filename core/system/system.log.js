@@ -38,6 +38,8 @@ System.Log.setMode = function(mode){
 			debugHtml.style.display = STRING.CSS_DISPLAY_NONE;
 			break;
 	}
+	
+	System.Log.ActiveMode = mode;
 };
 
 System.Log.setLevel = function(level){
@@ -69,7 +71,7 @@ System.Log.log = function(message, level, color){
 	if (!color) color 	= System.Log.COLOR_DEFAULT;
 	
 	if (System.Log.ActiveMode !== System.Log.MODE_PRODUCTION && level >= System.Log.ActiveLevel){		
-		alert(System.Log.ALERT_PREFIX + message);		
+		alert(System.Log.ALERT_PREFIX + message);
 		System.Log.Buffer.push("<span style=\"color:" + color + "\">" + message + "</span>");
 		
 		while (System.Log.Buffer.length > System.Log.BUFFER_SIZE){
@@ -77,8 +79,8 @@ System.Log.log = function(message, level, color){
 		}
 		
 		if (System.Log.ActiveMode === System.Log.MODE_DEBUGGING){
-			System.Log.BufferString	= System.Log.Buffer.join("<br />");			
-			System.putInnerHtml(System.Log.HTML_ID, System.Log.BufferString);	
+			System.Log.BufferString	= System.Log.Buffer.join("<br />");	
+			System.putInnerHTML(System.Log.HTML_ID, System.Log.BufferString);	
 		}				
 	}	
 };

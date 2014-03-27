@@ -23,6 +23,7 @@ System.Cache.getScene = function(sceneName){
 
 System.Cache.getHtml = function(htmlId){
 	if (System.TYPE_UNDEFINED === System.Cache.HtmlDOM[htmlId]){
+		alert("[System.Cache] Caching HTML DOM: " + htmlId);
 		System.Cache.HtmlDOM[htmlId] = document.getElementById(htmlId);
 	}
 	return System.Cache.HtmlDOM[htmlId];

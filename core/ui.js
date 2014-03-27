@@ -9,6 +9,8 @@ UI.showScene = function(sceneName, data){
 		Framework.loadScene(sceneName);
 		
 		sceneObject = eval("(new " + sceneName + "())");
+		
+		System.Cache.registerScene(sceneName, sceneObject);
 		sceneObject.initialize();
 	}
 	
