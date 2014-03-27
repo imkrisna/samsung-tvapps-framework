@@ -47,7 +47,7 @@ Main.onLoad = function(){
 			System.Log.setMode(System.Log.MODE_DEVELOPMENT);
 			System.Log.setLevel(System.Log.LEVEL_DEBUG);
 			
-			Samsung.SEF.loadAll();
+			Samsung.SEF.loadAll();			
 			
 			UI.showScene("SampleScene1");
 			UI.focusScene("SampleScene1");

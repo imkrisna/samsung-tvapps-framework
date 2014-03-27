@@ -1,11 +1,13 @@
 var UI = new Object();
 
-UI.SCENE_PREFIX	= "framework_scene_";
+UI.SCENE_PREFIX	= Framework.SCENE_PREFIX;
 UI.focusedScene	= null;
 
 UI.showScene = function(sceneName, data){
 	var sceneObject = System.Cache.getScene(sceneName);
 	if (sceneObject === null){
+		Framework.loadScene(sceneName);
+		
 		sceneObject = eval("(new " + sceneName + "())");
 		sceneObject.initialize();
 	}
