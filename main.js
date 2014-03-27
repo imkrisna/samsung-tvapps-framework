@@ -49,6 +49,9 @@ Main.onLoad = function(){
 			
 			Samsung.SEF.loadAll();
 			
+			UI.showScene("SampleScene1");
+			UI.focusScene("SampleScene1");
+			
 			System.Log.info("[main.js] Main.Runner Execution Complete!");
 		}
 		catch (error){
