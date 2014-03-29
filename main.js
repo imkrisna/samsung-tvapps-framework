@@ -3,7 +3,7 @@
  * @namespace Main
  * 
  * @author <a href="mailto:im.krisna@gmail.com">I Made Krisna Widhiastra</a>
- * @version 2014.17.02
+ * @version 2014.03.27
  * 
  * */
 var Main = null;
@@ -44,15 +44,18 @@ Main.onLoad = function(){
 	
 	Main.Runner = setTimeout(function(){
 		try{
-			System.Log.setMode(System.Log.MODE_DEVELOPMENT);
+			System.Log.setMode(System.Log.MODE_DEBUGGING);
 			System.Log.setLevel(System.Log.LEVEL_DEBUG);
 			
-			Samsung.SEF.loadAll();
+			Samsung.SEF.loadAll();			
+			
+			UI.showScene("SampleScene1");
+			UI.focusScene("SampleScene1");
 			
 			System.Log.info("[main.js] Main.Runner Execution Complete!");
 		}
 		catch (error){
-			System.Log.error("[main.js] Main.Runner Execution Exception: " + error.message);
+			System.Log.error("[main.js] Main.Runner Execution Exception: " + error.name + "/" +error.message);
 		}
 		
 		clearTimeout(Main.Runner);
@@ -78,5 +81,16 @@ Main.onUnload = function(){
  * @event
  * */
 Main.keyDown = function(){
-	
+	try{
+		var keyCode = event.keyCode;
+		if (UI.focusedScene !== null){		
+			(System.Cache.getScene(UI.focusedScene)).handleKeyDown(keyCode);			
+		}
+		else{
+			System.Log.warning("[main.js] Main.keyDown: No Focused Scene to Handle Key Input");
+		}
+	}	
+	catch (error){
+		System.Log.error("[main.js] Main.keyDown Exception: " + error.name + "/" + error.message);
+	}
 };

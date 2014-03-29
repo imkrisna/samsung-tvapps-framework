@@ -2,11 +2,15 @@ var System = new Object();
 
 System.SETTINGS_USE_CACHE	= true;
 
-System.TYPE_UNDEFINED 		= "undefined";
+System.TYPE_UNDEFINED 		= undefined;
 System.TYPE_STRING			= "string";
 
 System.putInnerHtml = function(html, value){
-	if (System.TYPE_STRING === typeof html){
+	System.putInnerHTML(html, value);
+};
+
+System.putInnerHTML = function(html, value){
+	if (System.TYPE_STRING === typeof(html)){
 		var domElement = null;
 		
 		if (true === System.SETTINGS_USE_CACHE && System.Cache){
@@ -16,8 +20,12 @@ System.putInnerHtml = function(html, value){
 			domElement = document.getElementById(html);
 		}
 		
-		Samsung.Widget.putInnerHtml(domElement, value);
+		Samsung.Widget.putInnerHTML(domElement, value);
 	}
+};
+
+System.preventClosing = function(){
+	if (event) Samsung.Widget.blockNavigation(event);
 };
 
 System.getWidgetId = function(){
